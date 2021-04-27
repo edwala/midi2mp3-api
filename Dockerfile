@@ -1,8 +1,8 @@
 # Source image
-FROM 1and1internet/ubuntu-16-apache-php-7.0
+FROM 1and1internet/ubuntu-16-apache-php-7.2
 
-# Fluidsynth (midi -> wav) et lame (wav -> mp3) installation
-RUN apt-get update && apt-get install -y fluidsynth lame
+# Fluidsynth (midi -> wav) et lame (wav -> mp3) installation | ffmpeg pro mix výsledných mp3
+RUN apt-get update && apt-get install -y fluidsynth lame ffmpeg
 
 # Maintainer info
 MAINTAINER ggracieux@gmail.com
@@ -10,6 +10,9 @@ MAINTAINER ggracieux@gmail.com
 # Apache configuration
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
 RUN chmod 777 /etc/apache2/sites-available/000-default.conf
+
+COPY limits.conf /etc/security/limits.conf
+RUN chmod 777 /etc/security/limits.conf
 
 # Adds API source files
 COPY lib /var/www/lib

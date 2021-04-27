@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 // Define APP_ROOT and autoloader
-define('APP_ROOT',dirname(__DIR__));
+define('APP_ROOT', dirname(__DIR__));
 require APP_ROOT . '/vendor/autoload.php';
 require APP_ROOT . '/lib/midi2mp3.php';
 
@@ -21,8 +21,8 @@ $app->get('/info', function ($request, $response, $args) {
     $lp = new Midi2Mp3();
     $result = $lp->info();
 
-	// returns json response
-    return $response->withJson($result,200);
+    // returns json response
+    return $response->withJson($result, 200);
 
 });
 
@@ -32,14 +32,16 @@ $app->get('/info', function ($request, $response, $args) {
 $app->post('/convert', function ($request, $response, $args) {
 
     // Gets midiData in request
-    $midiData = $request->getParsedBody()['base64MidiData'];
+    $midiDataA = $request->getParsedBody()['base64MidiDataA'];
+    $midiDataB = $request->getParsedBody()['base64MidiDataB'];
 
     // Convertion
     $lp = new Midi2Mp3();
-    $result = $lp->convert($midiData);
+    $result = $lp->convert($midiDataA, $midiDataB);
 
     // retrun results
-    return $response->withJson($result,200);
+    return $response->withJson($result, 200);
+    //return $response->withJson($midiData, 200);
 
 });
 
