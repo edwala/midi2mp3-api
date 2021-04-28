@@ -1,8 +1,14 @@
 # Source image
 FROM 1and1internet/ubuntu-16-apache-php-7.2
+#FROM php:7.2-apache
 
 # Fluidsynth (midi -> wav) et lame (wav -> mp3) installation | ffmpeg pro mix výsledných mp3
-RUN apt-get update && apt-get install -y fluidsynth lame ffmpeg
+RUN apt-get update
+RUN  apt-get install -y fluidsynth
+RUN  apt-get install -y  lame
+RUN  apt-get install -y   ffmpeg
+RUN  apt-get install -y curl
+RUN  apt-get install -y  php-curl
 
 # Maintainer info
 MAINTAINER ggracieux@gmail.com

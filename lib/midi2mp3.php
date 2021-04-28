@@ -5,7 +5,10 @@ class Midi2Mp3
 
     // dossier temporaire pour le traitement lilypond
     const TMP_DIR = '/tmp/midi2mp3';
-    const SOUNDFONT = 'TR-808.sf2';
+    const A = 'TR-808.sf2';
+    const B = 'Piano.sf2';
+    const C = 'KhaliagiDrums.sf2';
+    const D = 'lead_guitars.sf2';
     const MIDITEST = 'music.midi';
     //const SOUNDFONT = 'TimGM6mb.sf2';
 
@@ -51,7 +54,7 @@ class Midi2Mp3
     // CONVERTION
     //-----------------------------------------
 
-    public function convert($midiDataA, $midiDataB)
+    public function convert($midiDataA, $midiDataB, $midiDataC, $midiDataD)
     {
 
         // Mode optimiste
@@ -71,9 +74,23 @@ class Midi2Mp3
             if (isset($midiDataB) && $midiDataB != "") {
                 $this->songs["B"] = $this->convertor($midiDataB, "B");
             }
+            if (isset($midiDataC) && $midiDataC != "") {
+                $this->songs["C"] = $this->convertor($midiDataC, "C");
+            }
+            if (isset($midiDataD) && $midiDataD != "") {
+                $this->songs["D"] = $this->convertor($midiDataD, "D");
+            }
 
             if (isset($this->songs["B"])) {
                 $cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -filter_complex amix=inputs=2:duration=longest /tmp/midi2mp3/output/output.mp3";
+                //$cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -filter_complex amerge=inputs=2 -ac 2 /tmp/midi2mp3/output/output.mp3";
+                $file = "/tmp/midi2mp3/output/output.mp3";
+            } elseif (isset($this->songs["C"])) {
+                $cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -i /tmp/midi2mp3/C/C.mp3 -filter_complex amix=inputs=3:duration=longest /tmp/midi2mp3/output/output.mp3";
+                //$cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -filter_complex amerge=inputs=2 -ac 2 /tmp/midi2mp3/output/output.mp3";
+                $file = "/tmp/midi2mp3/output/output.mp3";
+            } elseif (isset($this->songs["D"])) {
+                $cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -i /tmp/midi2mp3/C/C.mp3 -i /tmp/midi2mp3/D/D.mp3 -filter_complex amix=inputs=4:duration=longest /tmp/midi2mp3/output/output.mp3";
                 //$cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -filter_complex amerge=inputs=2 -ac 2 /tmp/midi2mp3/output/output.mp3";
                 $file = "/tmp/midi2mp3/output/output.mp3";
             } else {
@@ -110,18 +127,14 @@ class Midi2Mp3
 
         //return base64_encode(file_get_contents($this->songs[0]));
 
+        return $file;
+        /*
         return array(
-            '$success' => $success,
-            '$message' => $message,
-            '$op' => $op,
-            '$retVal' => $retVal,
-            //'1encode' => base64_encode(file_get_contents($this->songs[0])),
-            //'2encode' => base64_encode(file_get_contents($this->songs[1])),
-            //'1' => $this->songs[0],
-            //'2' => $this->songs[1],
+
             'mp3' => base64_encode(file_get_contents($file)),
-            '$file' => $file
+            'mp3' => $file
         );
+        */
 
 
     }
@@ -140,13 +153,25 @@ class Midi2Mp3
 
         try {
 
+            if ($type == "A") {
+                $soundfont = dirname(__DIR__) . '/soundfonts/' . self::A;
+            } elseif ($type == "B") {
+                $soundfont = dirname(__DIR__) . '/soundfonts/' . self::B;
+            } elseif ($type == "C") {
+                $soundfont = dirname(__DIR__) . '/soundfonts/' . self::C;
+            } elseif ($type == "D") {
+                $soundfont = dirname(__DIR__) . '/soundfonts/' . self::D;
+            } else {
+                $soundfont = dirname(__DIR__) . '/soundfonts/Piano.sf2';
+            }
+
             // Initialisation
             $this->initPath($type);
             mkdir($this->dir, 0777, true);
             file_put_contents($this->inputFile, base64_decode($midiData, true));
 
             // Execution FluidSynth
-            $soundfont = dirname(__DIR__) . '/soundfonts/' . self::SOUNDFONT;
+
             $midi = dirname(__DIR__) . '/soundfonts/' . self::MIDITEST;
             $cmd = "fluidsynth -F $this->dir/$this->id.wav $soundfont  $this->inputFile > $this->logFileFS 2>&1";
             exec($cmd, $op, $retVal);

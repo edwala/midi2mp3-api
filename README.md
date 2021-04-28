@@ -15,11 +15,18 @@ composer install
 #### Build
 ```bash
 docker image build -t midi2mp3-api .
+
+docker build -t musicmonkey .
+docker tag musicmonkey:latest 775008567290.dkr.ecr.eu-central-1.amazonaws.com/musicmonkey:latest
+aws lightsail push-container-image --region eu-central-1 --service-name mm-midi2mp3 --label 1 --image 775008567290.dkr.ecr.eu-central-1.amazonaws.com/musicmonkey:latest
+
+
 ```
 
 #### Run
 ```bash
 docker run -p 80:80 midi2mp3-api
+docker run -p 8999:80 775008567290.dkr.ecr.eu-central-1.amazonaws.com/musicmonkey 
 ```
 
 ## API Usage
