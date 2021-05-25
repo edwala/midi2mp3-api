@@ -9,6 +9,9 @@ RUN  apt-get install -y  lame
 RUN  apt-get install -y   ffmpeg
 RUN  apt-get install -y curl
 RUN  apt-get install -y  php-curl
+RUN  apt-get install -y  mp3info
+
+
 
 # Maintainer info
 MAINTAINER ggracieux@gmail.com

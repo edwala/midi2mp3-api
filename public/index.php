@@ -31,27 +31,98 @@ $app->get('/info', function ($request, $response, $args) {
 // ------------------------
 $app->post('/convert', function ($request, $response, $args) {
 
+    $callback_base = $request->getParsedBody()['callback_base'];
+    $callback_uri = $request->getParsedBody()['callback_uri'];
+
     // Gets midiData in request
     $id = $request->getParsedBody()['id'];
     $midiDataA = $request->getParsedBody()['base64MidiDataA'];
     $midiDataB = $request->getParsedBody()['base64MidiDataB'];
     $midiDataC = $request->getParsedBody()['base64MidiDataC'];
     $midiDataD = $request->getParsedBody()['base64MidiDataD'];
+    $midiDataE = $request->getParsedBody()['base64MidiDataE'];
+    $midiDataF = $request->getParsedBody()['base64MidiDataF'];
+    $midiDataG = $request->getParsedBody()['base64MidiDataG'];
+    $midiDataH = $request->getParsedBody()['base64MidiDataH'];
+    $midiDataCH = $request->getParsedBody()['base64MidiDataCH'];
+    $midiDataI = $request->getParsedBody()['base64MidiDataI'];
+    $midiDataJ = $request->getParsedBody()['base64MidiDataJ'];
+    $midiDataK = $request->getParsedBody()['base64MidiDataK'];
+    $midiDataL = $request->getParsedBody()['base64MidiDataL'];
+    $midiDataM = $request->getParsedBody()['base64MidiDataM'];
+    $midiDataN = $request->getParsedBody()['base64MidiDataN'];
+    $midiDataO = $request->getParsedBody()['base64MidiDataO'];
+    $midiDataP = $request->getParsedBody()['base64MidiDataP'];
+    $midiDataQ = $request->getParsedBody()['base64MidiDataQ'];
+    $midiDataR = $request->getParsedBody()['base64MidiDataR'];
+    $midiDataS = $request->getParsedBody()['base64MidiDataS'];
+    $midiDataT = $request->getParsedBody()['base64MidiDataT'];
+    $midiDataU = $request->getParsedBody()['base64MidiDataU'];
+    $midiDataV = $request->getParsedBody()['base64MidiDataV'];
+    $midiDataW = $request->getParsedBody()['base64MidiDataW'];
+    $midiDataX = $request->getParsedBody()['base64MidiDataX'];
+    $midiDataY = $request->getParsedBody()['base64MidiDataY'];
+    $midiDataZ = $request->getParsedBody()['base64MidiDataZ'];
+    $midiDataAA = $request->getParsedBody()['base64MidiDataAA'];
+    $midiDataAB = $request->getParsedBody()['base64MidiDataAB'];
+    $midiDataAC = $request->getParsedBody()['base64MidiDataAC'];
+    $midiDataAD = $request->getParsedBody()['base64MidiDataAD'];
+    $midiDataAE = $request->getParsedBody()['base64MidiDataAE'];
 
     // Convertion
     $lp = new Midi2Mp3();
-    $result = $lp->convert($midiDataA, $midiDataB, $midiDataC, $midiDataD);
+    $result = $lp->convert(
+        $midiDataA,
+        $midiDataB,
+        $midiDataC,
+        $midiDataD,
+        $midiDataE,
+        $midiDataF,
+        $midiDataG,
+        $midiDataH,
+        $midiDataCH,
+        $midiDataI,
+        $midiDataJ,
+        $midiDataK,
+        $midiDataL,
+        $midiDataM,
+        $midiDataN,
+        $midiDataO,
+        $midiDataP,
+        $midiDataQ,
+        $midiDataR,
+        $midiDataS,
+        $midiDataT,
+        $midiDataU,
+        $midiDataV,
+        $midiDataW,
+        $midiDataX,
+        $midiDataY,
+        $midiDataZ,
+        $midiDataAA,
+        $midiDataAB,
+        $midiDataAC,
+        $midiDataAD,
+        $midiDataAE
+    );
+
 
     try {
-        $client = new \GuzzleHttp\Client(["base_uri" => "https://api.musicmonkey.cz"]);
+
+        $client = new \GuzzleHttp\Client(["base_uri" => "$callback_base"]);
+        //$client = new \GuzzleHttp\Client(["base_uri" => "https://api.musicmonkey.cz"]);
+        //$client = new \GuzzleHttp\Client(["base_uri" => "http://127.0.0.1:8001"]);
         $options = [
             'form_params' => [
                 'acces_key' => 'zmrdevoletohlejeacceskey',
                 'id' => $id,
-                'mp3' => $result,
+                'mp3' => $result[file],
+                'duration' => $result[duration],
             ]
         ];
-        $client->post("/api/v1/midi2mp3", $options);
+
+        $client->post($callback_uri, $options);
+        //$client->post("/api/v1/midi2mp3", $options);
 
 
     } catch (Exception $ex) {
