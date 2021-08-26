@@ -9,6 +9,8 @@ REST API (Docker, PHP, Slim, FluidSynth, Lame) for MIDI to MP3 convertion.
 
 ## Start
 
+sqlite3 -init /var/www/lib/db.sqlite
+
 #### Installation
 
 ```bash

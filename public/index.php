@@ -40,6 +40,21 @@ $app->get('/sf', function ($request, $response, $args) {
 
 });
 
+$app->get('/queue', function ($request, $response, $args) {
+
+    $db = new SQLite3('../lib/db.sqlite');
+    $array = array();
+    $results = $db->query('SELECT * FROM "queue"');
+
+
+    while ($row = $results->fetchArray()) {
+        array_push($array, $row);
+    }
+
+    return $response->withJson($array, 200);
+
+});
+
 // ------------------------
 // CONVERT ROUTE
 // ------------------------
@@ -149,6 +164,36 @@ $app->post('/convert', function ($request, $response, $args) {
 
     // retrun results
     return $response->withJson($result, 200);
+    //return $response->withJson($midiData, 200);
+
+});
+
+
+// ------------------------
+// CONVERT ROUTE
+// ------------------------
+$app->post('/queue', function ($request, $response, $args) {
+
+    $callback_base = $request->getParsedBody()['callback_base'];
+    $callback_uri = $request->getParsedBody()['callback_uri'];
+    $id = $request->getParsedBody()['id'];
+    $midis = $request->getParsedBody()['midis'];
+
+
+    $db = new SQLite3('../lib/db.sqlite');
+
+    $db->query('CREATE TABLE "queue" ("id" integer,"state" varchar DEFAULT waiting, PRIMARY KEY (id))');
+
+
+    try {
+        $result = $db->query('INSERT into "queue"("state") values("waiting")');
+    } catch (Exception $ex) {
+        return $response->withJson($ex->getMessage(), 500);
+    }
+
+
+    return $response->withJson($result, 200);
+    //return $response->withJson($result, 200);
     //return $response->withJson($midiData, 200);
 
 });

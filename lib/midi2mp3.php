@@ -152,261 +152,44 @@ class Midi2Mp3
         $message = '';
 
         try {
-
-
             $tmp_dir = self::TMP_DIR;
             mkdir($tmp_dir . "/output", 0777, true);
             $output_dir = $tmp_dir . "/output";
 
 
-            /*
-             *
-            if (isset($midiDataA) && $midiDataA != "") {
-                $this->songs["A"] = $this->convertor($midiDataA, "A");
-            }
-            if (isset($midiDataB) && $midiDataB != "") {
-                $this->songs["B"] = $this->convertor($midiDataB, "B");
-            }
-            if (isset($midiDataC) && $midiDataC != "") {
-                $this->songs["C"] = $this->convertor($midiDataC, "C");
-            }
-            if (isset($midiDataD) && $midiDataD != "") {
-                $this->songs["D"] = $this->convertor($midiDataD, "D");
-            }
-            if (isset($midiDataE) && $midiDataE != "") {
-                $this->songs["E"] = $this->convertor($midiDataE, "E");
-            }
-            if (isset($midiDataF) && $midiDataF != "") {
-                $this->songs["F"] = $this->convertor($midiDataF, "F");
-            }
-            if (isset($midiDataG) && $midiDataG != "") {
-                $this->songs["G"] = $this->convertor($midiDataG, "G");
-            }
-            if (isset($midiDataH) && $midiDataH != "") {
-                $this->songs["H"] = $this->convertor($midiDataH, "H");
-            }
-            if (isset($midiDataCH) && $midiDataCH != "") {
-                $this->songs["CH"] = $this->convertor($midiDataCH, "CH");
-            }
-            if (isset($midiDataI) && $midiDataI != "") {
-                $this->songs["I"] = $this->convertor($midiDataI, "I");
-            }
-            if (isset($midiDataJ) && $midiDataJ != "") {
-                $this->songs["J"] = $this->convertor($midiDataJ, "J");
-            }
-            if (isset($midiDataK) && $midiDataK != "") {
-                $this->songs["K"] = $this->convertor($midiDataK, "K");
-            }
-            if (isset($midiDataL) && $midiDataL != "") {
-                $this->songs["L"] = $this->convertor($midiDataL, "L");
-            }
-            if (isset($midiDataM) && $midiDataM != "") {
-                $this->songs["M"] = $this->convertor($midiDataM, "M");
-            }
-            if (isset($midiDataN) && $midiDataN != "") {
-                $this->songs["N"] = $this->convertor($midiDataN, "N");
-            }
-            if (isset($midiDataO) && $midiDataO != "") {
-                $this->songs["O"] = $this->convertor($midiDataO, "O");
-            }
-            if (isset($midiDataP) && $midiDataP != "") {
-                $this->songs["P"] = $this->convertor($midiDataP, "P");
-            }
-            if (isset($midiDataQ) && $midiDataQ != "") {
-                $this->songs["Q"] = $this->convertor($midiDataQ, "Q");
-            }
-            if (isset($midiDataR) && $midiDataR != "") {
-                $this->songs["R"] = $this->convertor($midiDataR, "R");
-            }
-            if (isset($midiDataS) && $midiDataS != "") {
-                $this->songs["S"] = $this->convertor($midiDataS, "S");
-            }
-            if (isset($midiDataT) && $midiDataT != "") {
-                $this->songs["T"] = $this->convertor($midiDataT, "T");
-            }
-            if (isset($midiDataU) && $midiDataU != "") {
-                $this->songs["U"] = $this->convertor($midiDataU, "U");
-            }
-            if (isset($midiDataV) && $midiDataV != "") {
-                $this->songs["V"] = $this->convertor($midiDataV, "V");
-            }
-            if (isset($midiDataW) && $midiDataW != "") {
-                $this->songs["W"] = $this->convertor($midiDataW, "W");
-            }
-            if (isset($midiDataX) && $midiDataX != "") {
-                $this->songs["X"] = $this->convertor($midiDataX, "X");
-            }
-            if (isset($midiDataY) && $midiDataY != "") {
-                $this->songs["Y"] = $this->convertor($midiDataY, "Y");
-            }
-            if (isset($midiDataZ) && $midiDataZ != "") {
-                $this->songs["Z"] = $this->convertor($midiDataZ, "Z");
-            }
-            if (isset($midiDataAA) && $midiDataAA != "") {
-                $this->songs["AA"] = $this->convertor($midiDataAA, "AA");
-            }
-            if (isset($midiDataAB) && $midiDataAB != "") {
-                $this->songs["AB"] = $this->convertor($midiDataAB, "AB");
-            }
-            if (isset($midiDataAC) && $midiDataAC != "") {
-                $this->songs["AC"] = $this->convertor($midiDataAC, "AC");
-            }
-            if (isset($midiDataAD) && $midiDataAD != "") {
-                $this->songs["AD"] = $this->convertor($midiDataAD, "AD");
-            }
-            if (isset($midiDataAE) && $midiDataAE != "") {
-                $this->songs["AE"] = $this->convertor($midiDataAE, "AE");
-            }
-            if (isset($midiDataAF) && $midiDataAF != "") {
-                $this->songs["AF"] = $this->convertor($midiDataAF, "AF");
-            }
-            if (isset($midiDataAG) && $midiDataAG != "") {
-                $this->songs["AG"] = $this->convertor($midiDataAG, "AG");
-            }
-            if (isset($midiDataAH) && $midiDataAH != "") {
-                $this->songs["AH"] = $this->convertor($midiDataAH, "AH");
-            }
-            if (isset($midiDataACH) && $midiDataACH != "") {
-                $this->songs["ACH"] = $this->convertor($midiDataACH, "ACH");
-            }
-            if (isset($midiDataAI) && $midiDataAI != "") {
-                $this->songs["AI"] = $this->convertor($midiDataAI, "AI");
-            }
-            if (isset($midiDataAJ) && $midiDataAJ != "") {
-                $this->songs["AJ"] = $this->convertor($midiDataAJ, "AJ");
-            }
-            if (isset($midiDataAK) && $midiDataAK != "") {
-                $this->songs["AK"] = $this->convertor($midiDataAK, "AK");
-            }
-            if (isset($midiDataAL) && $midiDataAL != "") {
-                $this->songs["AL"] = $this->convertor($midiDataAL, "AL");
-            }
-            if (isset($midiDataAM) && $midiDataAM != "") {
-                $this->songs["AM"] = $this->convertor($midiDataAM, "AM");
-            }
-            if (isset($midiDataAN) && $midiDataAN != "") {
-                $this->songs["AN"] = $this->convertor($midiDataAN, "AN");
-            }
-            if (isset($midiDataAO) && $midiDataAO != "") {
-                $this->songs["AO"] = $this->convertor($midiDataAO, "AO");
-            }
-
-            */
-
-
             $this->songs["A"] = $this->convertor($midiDataA, "A");
-
-
             $this->songs["B"] = $this->convertor($midiDataB, "B");
-
-
             $this->songs["C"] = $this->convertor($midiDataC, "C");
-
-
             $this->songs["D"] = $this->convertor($midiDataD, "D");
-
-
             $this->songs["E"] = $this->convertor($midiDataE, "E");
-
-
             $this->songs["F"] = $this->convertor($midiDataF, "F");
-
-
             $this->songs["G"] = $this->convertor($midiDataG, "G");
-
-
             $this->songs["H"] = $this->convertor($midiDataH, "H");
-
-
             $this->songs["CH"] = $this->convertor($midiDataCH, "CH");
-
-
             $this->songs["I"] = $this->convertor($midiDataI, "I");
-
-
             $this->songs["J"] = $this->convertor($midiDataJ, "J");
-
-
             $this->songs["K"] = $this->convertor($midiDataK, "K");
-
-
             $this->songs["L"] = $this->convertor($midiDataL, "L");
-
-
             $this->songs["M"] = $this->convertor($midiDataM, "M");
-
-
             $this->songs["N"] = $this->convertor($midiDataN, "N");
-
-
             $this->songs["O"] = $this->convertor($midiDataO, "O");
-
-
             $this->songs["P"] = $this->convertor($midiDataP, "P");
-
-
             $this->songs["Q"] = $this->convertor($midiDataQ, "Q");
-
-
             $this->songs["R"] = $this->convertor($midiDataR, "R");
-
-
             $this->songs["S"] = $this->convertor($midiDataS, "S");
-
-
             $this->songs["T"] = $this->convertor($midiDataT, "T");
-
-
             $this->songs["U"] = $this->convertor($midiDataU, "U");
-
-
             $this->songs["V"] = $this->convertor($midiDataV, "V");
-
-
             $this->songs["W"] = $this->convertor($midiDataW, "W");
-
-
             $this->songs["X"] = $this->convertor($midiDataX, "X");
-
-
             $this->songs["Y"] = $this->convertor($midiDataY, "Y");
-
-
             $this->songs["Z"] = $this->convertor($midiDataZ, "Z");
-
-
             $this->songs["AA"] = $this->convertor($midiDataAA, "AA");
-
-
             $this->songs["AB"] = $this->convertor($midiDataAB, "AB");
-
-
             $this->songs["AC"] = $this->convertor($midiDataAC, "AC");
-
-
             $this->songs["AD"] = $this->convertor($midiDataAD, "AD");
-
-
             $this->songs["AE"] = $this->convertor($midiDataAE, "AE");
 
-
-            /*
-
-            if (isset($this->songs["B"])) {
-                $cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -filter_complex amix=inputs=2:duration=longest /tmp/midi2mp3/output/output.mp3";
-                //$cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -filter_complex amerge=inputs=2 -ac 2 /tmp/midi2mp3/output/output.mp3";
-                $file = "/tmp/midi2mp3/output/output.mp3";
-            } elseif (isset($this->songs["C"])) {
-                $cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -i /tmp/midi2mp3/C/C.mp3 -filter_complex amix=inputs=3:duration=longest /tmp/midi2mp3/output/output.mp3";
-                //$cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -filter_complex amerge=inputs=2 -ac 2 /tmp/midi2mp3/output/output.mp3";
-                $file = "/tmp/midi2mp3/output/output.mp3";
-            } elseif (isset($this->songs["D"])) {
-                $cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -i /tmp/midi2mp3/C/C.mp3 -i /tmp/midi2mp3/D/D.mp3 -filter_complex amix=inputs=4:duration=longest /tmp/midi2mp3/output/output.mp3";
-                //$cmdMix = "ffmpeg -i /tmp/midi2mp3/A/A.mp3 -i /tmp/midi2mp3/B/B.mp3 -filter_complex amerge=inputs=2 -ac 2 /tmp/midi2mp3/output/output.mp3";
-                $file = "/tmp/midi2mp3/output/output.mp3";
-            } //TODO doplnit další else asi?
-
-            */
 
             $cmdMix = "ffmpeg";
             $cmdMix .= " -i /tmp/midi2mp3/A/A.mp3";
