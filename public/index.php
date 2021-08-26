@@ -27,6 +27,20 @@ $app->get('/info', function ($request, $response, $args) {
 });
 
 // ------------------------
+// INFO ROUTE
+// ------------------------
+$app->get('/sf', function ($request, $response, $args) {
+
+    // gets API Information
+    $lp = new Midi2Mp3();
+    $result = $lp->showSF();
+
+    // returns json response
+    return $response->withJson($result, 200);
+
+});
+
+// ------------------------
 // CONVERT ROUTE
 // ------------------------
 $app->post('/convert', function ($request, $response, $args) {

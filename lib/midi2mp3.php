@@ -7,7 +7,7 @@ class Midi2Mp3
     const TMP_DIR = '/tmp/midi2mp3';
 
     // Bass
-    const A = 'Bass/BassLong.sf2';
+    const A = 'BasBassLongs/.sf2';
     const B = 'Bass/BassPizz.sf2';
     const C = 'Bass/BassShort.sf2';
     const D = 'Bass/BassStreet.sf2';
@@ -77,16 +77,34 @@ class Midi2Mp3
 
     public function info()
     {
+
         // Compose le message retour
         return array(
             'apiName' => 'midi2mp3',
             'version' => array(
-                'api' => '1.1',
+                'api' => '2.0',
                 'fluildsynth' => FLUIDSYNTH_VERSION,
                 'lame' => LAME_VERSION
             ),
-            'description' => 'Midi to Mp3 file convertion',
+            'description' => 'Midi to Mp3 file conversion with queue and CDN SF2',
         );
+    }
+
+    public function showSF()
+    {
+        $db = new SQLite3('../lib/db.sqlite');
+
+        $db->query('CREATE TABLE if not exists "sf" ("id" integer, "name" varchar FIRST, "uuid" varchar FIRST, "type" varchar FIRST, "location" varchar FIRST, "source" text FIRST, "downloaded" varchar FIRST, PRIMARY KEY (id))');;
+        $array = array();
+        $results = $db->query('SELECT * FROM "sf"');
+
+
+        while ($row = $results->fetchArray()) {
+            array_push($array, $row);
+        }
+
+        return $array;
+
     }
 
 

@@ -1,18 +1,22 @@
 # midi2mp3-api
+
 REST API (Docker, PHP, Slim, FluidSynth, Lame) for MIDI to MP3 convertion.
 
 ## Prerequisite
-- Install [composer](https://getcomposer.org/) 
+
+- Install [composer](https://getcomposer.org/)
 - Install [docker](https://www.docker.com/)
 
 ## Start
 
 #### Installation
+
 ```bash
 composer install
 ```
-	
+
 #### Build
+
 ```bash
 docker image build -t midi2mp3-api .
 
@@ -24,8 +28,9 @@ aws lightsail push-container-image --region eu-central-1 --service-name mm-midi2
 ```
 
 #### Run
+
 ```bash
-docker run -p 80:80 midi2mp3-api
+docker run -p 8999:80 midi2mp3-api
 docker run -p 8999:80 775008567290.dkr.ecr.eu-central-1.amazonaws.com/musicmonkey 
 ```
 
@@ -34,11 +39,14 @@ docker run -p 8999:80 775008567290.dkr.ecr.eu-central-1.amazonaws.com/musicmonke
 ### Endpoint http://[docker-machine]/info
 
 #### Request
+
 - Verb : GET
 - No parameter
-	
+
 #### Response
+
 - Content-Type : Application/json
+
 ```json
 {
   "apiName": "midi2mp3",
@@ -46,22 +54,26 @@ docker run -p 8999:80 775008567290.dkr.ecr.eu-central-1.amazonaws.com/musicmonke
   "description": "Midi to MP3 Convertion"
 }
 ```  
-	
+
 ### Endpoint http://[docker-machine]/convert
-	
-#### Request	
+
+#### Request
+
 - Verb : POST
 - Content-Type : Application/json
 - Parameters :
--- midiData : Base64 encoded Midi file
+  -- midiData : Base64 encoded Midi file
+
 ```json
 {
   "midiData": "TVRoZAAAAAYAAQACAYBNVHJrAAAAUwD/Aw1jb250cm.....AP8BC"
 }
 ```
-	
+
 #### Response
+
 - Content-Type : Application/json
+
 ```json  
 {
   "statusCode": "OK|ERROR",
@@ -81,5 +93,6 @@ docker run -p 8999:80 775008567290.dkr.ecr.eu-central-1.amazonaws.com/musicmonke
 ```
 
 ## Also read
+
 - [How to contribute](CONTRIBUTING.md)
 - [Code of conduct](CODE_OF_CONDUCT.md)
