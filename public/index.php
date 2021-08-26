@@ -178,21 +178,25 @@ $app->post('/queue', function ($request, $response, $args) {
     $callback_uri = $request->getParsedBody()['callback_uri'];
     $id = $request->getParsedBody()['id'];
     $midis = $request->getParsedBody()['midis'];
+    //$midisSerialized = json_encode($midis);
+    //$midisSerialized = implode(",", $midis);
+    $midisSerialized = $midis;
 
 
     $db = new SQLite3('../lib/db.sqlite');
 
     $db->query('CREATE TABLE "queue" ("id" integer,"state" varchar DEFAULT waiting, PRIMARY KEY (id))');
 
+    $db->enableExceptions(true);
 
     try {
-        $result = $db->query('INSERT into "queue"("state") values("waiting")');
+        $result = $db->exec("INSERT into 'queue'('state', 'project_id', 'callback_uri', 'callback_base', 'midis') values('waiting', '" . $id . "', '" . $callback_uri . "', '" . $callback_base . "', '" . $midisSerialized . "')");
     } catch (Exception $ex) {
-        return $response->withJson($ex->getMessage(), 500);
+        die($ex->getMessage());
     }
 
 
-    return $response->withJson($result, 200);
+    return $response->withJson([$midis, $midisSerialized, $result], 200);
     //return $response->withJson($result, 200);
     //return $response->withJson($midiData, 200);
 

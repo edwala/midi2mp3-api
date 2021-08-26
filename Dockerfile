@@ -16,6 +16,7 @@ RUN  apt-get install -y   ffmpeg
 RUN  apt-get install -y php7.0-curl
 RUN  apt-get install -y  mp3info
 RUN  apt-get install -y  nano
+RUN  apt-get install -y cron
 
 #RUN apt-get install dialog apt-utils -y
 
@@ -55,6 +56,9 @@ ENV UID 33
 RUN echo "<?php define('FLUIDSYNTH_VERSION',\"$(fluidsynth -h | sed -n 1p)\"); " > /var/www/lib/const.php
 RUN echo "define('LAME_VERSION',\"$(lame -? | sed -n 1p)\"); ?>" >> /var/www/lib/const.php
 RUN chmod 777 /var/www/lib/const.php
+
+# CRON SETUP
+* * * * * php /var/www/lib/cronRunner.php
 
 #RUN sqlite3 -init /var/www/lib/db.sqlite
 #RUN CREATE TABLE "queue" ("id" integer,"state" varchar DEFAULT 'waiting', PRIMARY KEY (id));
