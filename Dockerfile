@@ -58,7 +58,7 @@ RUN echo "define('LAME_VERSION',\"$(lame -? | sed -n 1p)\"); ?>" >> /var/www/lib
 RUN chmod 777 /var/www/lib/const.php
 
 # CRON SETUP
-* * * * * php /var/www/lib/cronRunner.php
+#* * * * * php /var/www/lib/cronRunner.php
 
 #RUN sqlite3 -init /var/www/lib/db.sqlite
 #RUN CREATE TABLE "queue" ("id" integer,"state" varchar DEFAULT 'waiting', PRIMARY KEY (id));
