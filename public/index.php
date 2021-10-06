@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Define APP_ROOT and autoloader
 define('APP_ROOT', dirname(__DIR__));
 require APP_ROOT . '/vendor/autoload.php';
@@ -11,6 +15,15 @@ require APP_ROOT . '/lib/midi2mp3.php';
 // Creates app
 $app = new \Slim\App();
 
+/*
+$container = $app->getContainer();
+
+$container['errorHandler'] = function ($container) {
+    return function ($request, $response, $exception) use ($container) {
+        return $response->withStatus(500)->withHeader('Content-type', 'text/html')->write('Something wrong');
+    };
+};
+*/
 
 // ------------------------
 // INFO ROUTE
@@ -62,9 +75,11 @@ $app->post('/convert', function ($request, $response, $args) {
 
     $callback_base = $request->getParsedBody()['callback_base'];
     $callback_uri = $request->getParsedBody()['callback_uri'];
+    $jobId = $request->getParsedBody()['jobId'];
+    $id = $request->getParsedBody()['id'];
 
     // Gets midiData in request
-    $id = $request->getParsedBody()['id'];
+
     $midiDataA = $request->getParsedBody()['base64MidiDataA'];
     $midiDataB = $request->getParsedBody()['base64MidiDataB'];
     $midiDataC = $request->getParsedBody()['base64MidiDataC'];
@@ -138,26 +153,34 @@ $app->post('/convert', function ($request, $response, $args) {
 
     try {
 
-        $client = new \GuzzleHttp\Client(["base_uri" => "$callback_base"]);
+        $client = new \GuzzleHttp\Client(["base_uri" => "$callback_base", 'verify' => false]);
         //$client = new \GuzzleHttp\Client(["base_uri" => "https://api.musicmonkey.cz"]);
         //$client = new \GuzzleHttp\Client(["base_uri" => "http://127.0.0.1:8001"]);
         $options = [
             'form_params' => [
                 'acces_key' => 'zmrdevoletohlejeacceskey',
                 'id' => $id,
-                'mp3' => $result[file],
-                'duration' => $result[duration],
+                'mp3' => $result["file"],
+                'duration' => $result["duration"],
+                'jobId' => $jobId,
             ]
         ];
 
-        $client->post($callback_uri, $options);
+        try {
+            $client->post($callback_uri, $options);
+        } catch (Exception $ex) {
+            return $response->withJson($ex->getResponse()->getBody()->getContents(), 500);
+        }
+
         //$client->post("/api/v1/midi2mp3", $options);
 
 
     } catch (Exception $ex) {
 
 
-        return $response->withJson($ex->getMessage(), 500);
+        //return $response->getBody();
+
+        return $response->withJson($ex->getResponse()->getBody()->getContents(), 500);
 
 
     }

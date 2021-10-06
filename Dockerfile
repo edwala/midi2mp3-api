@@ -17,6 +17,12 @@ RUN  apt-get install -y php7.0-curl
 RUN  apt-get install -y  mp3info
 RUN  apt-get install -y  nano
 RUN  apt-get install -y cron
+RUN \
+  apt-get install ca-certificates && \
+  apt-get clean
+RUN update-ca-certificates -f -v
+
+RUN echo insecure >> ~/.curlrc
 
 #RUN apt-get install dialog apt-utils -y
 
