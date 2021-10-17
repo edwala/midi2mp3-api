@@ -113,6 +113,40 @@ $app->post('/convert', function ($request, $response, $args) {
     $midiDataAD = $request->getParsedBody()['base64MidiDataAD'];
     $midiDataAE = $request->getParsedBody()['base64MidiDataAE'];
 
+
+    $midiDataA_sfID = $request->getParsedBody()['base64MidiDataA_sfID'];
+    $midiDataB_sfID = $request->getParsedBody()['base64MidiDataB_sfID'];
+    $midiDataC_sfID = $request->getParsedBody()['base64MidiDataC_sfID'];
+    $midiDataD_sfID = $request->getParsedBody()['base64MidiDataD_sfID'];
+    $midiDataE_sfID = $request->getParsedBody()['base64MidiDataE_sfID'];
+    $midiDataF_sfID = $request->getParsedBody()['base64MidiDataF_sfID'];
+    $midiDataG_sfID = $request->getParsedBody()['base64MidiDataG_sfID'];
+    $midiDataH_sfID = $request->getParsedBody()['base64MidiDataH_sfID'];
+    $midiDataCH_sfID = $request->getParsedBody()['base64MidiDataCH_sfID'];
+    $midiDataI_sfID = $request->getParsedBody()['base64MidiDataI_sfID'];
+    $midiDataJ_sfID = $request->getParsedBody()['base64MidiDataJ_sfID'];
+    $midiDataK_sfID = $request->getParsedBody()['base64MidiDataK_sfID'];
+    $midiDataL_sfID = $request->getParsedBody()['base64MidiDataL_sfID'];
+    $midiDataM_sfID = $request->getParsedBody()['base64MidiDataM_sfID'];
+    $midiDataN_sfID = $request->getParsedBody()['base64MidiDataN_sfID'];
+    $midiDataO_sfID = $request->getParsedBody()['base64MidiDataO_sfID'];
+    $midiDataP_sfID = $request->getParsedBody()['base64MidiDataP_sfID'];
+    $midiDataQ_sfID = $request->getParsedBody()['base64MidiDataQ_sfID'];
+    $midiDataR_sfID = $request->getParsedBody()['base64MidiDataR_sfID'];
+    $midiDataS_sfID = $request->getParsedBody()['base64MidiDataS_sfID'];
+    $midiDataT_sfID = $request->getParsedBody()['base64MidiDataT_sfID'];
+    $midiDataU_sfID = $request->getParsedBody()['base64MidiDataU_sfID'];
+    $midiDataV_sfID = $request->getParsedBody()['base64MidiDataV_sfID'];
+    $midiDataW_sfID = $request->getParsedBody()['base64MidiDataW_sfID'];
+    $midiDataX_sfID = $request->getParsedBody()['base64MidiDataX_sfID'];
+    $midiDataY_sfID = $request->getParsedBody()['base64MidiDataY_sfID'];
+    $midiDataZ_sfID = $request->getParsedBody()['base64MidiDataZ_sfID'];
+    $midiDataAA_sfID = $request->getParsedBody()['base64MidiDataAA_sfID'];
+    $midiDataAB_sfID = $request->getParsedBody()['base64MidiDataAB_sfID'];
+    $midiDataAC_sfID = $request->getParsedBody()['base64MidiDataAC_sfID'];
+    $midiDataAD_sfID = $request->getParsedBody()['base64MidiDataAD_sfID'];
+    $midiDataAE_sfID = $request->getParsedBody()['base64MidiDataAE_sfID'];
+
     // Convertion
     $lp = new Midi2Mp3();
     $result = $lp->convert(
@@ -147,7 +181,40 @@ $app->post('/convert', function ($request, $response, $args) {
         $midiDataAB,
         $midiDataAC,
         $midiDataAD,
-        $midiDataAE
+        $midiDataAE,
+
+        $midiDataA_sfID,
+        $midiDataB_sfID,
+        $midiDataC_sfID,
+        $midiDataD_sfID,
+        $midiDataE_sfID,
+        $midiDataF_sfID,
+        $midiDataG_sfID,
+        $midiDataH_sfID,
+        $midiDataCH_sfID,
+        $midiDataI_sfID,
+        $midiDataJ_sfID,
+        $midiDataK_sfID,
+        $midiDataL_sfID,
+        $midiDataM_sfID,
+        $midiDataN_sfID,
+        $midiDataO_sfID,
+        $midiDataP_sfID,
+        $midiDataQ_sfID,
+        $midiDataR_sfID,
+        $midiDataS_sfID,
+        $midiDataT_sfID,
+        $midiDataU_sfID,
+        $midiDataV_sfID,
+        $midiDataW_sfID,
+        $midiDataX_sfID,
+        $midiDataY_sfID,
+        $midiDataZ_sfID,
+        $midiDataAA_sfID,
+        $midiDataAB_sfID,
+        $midiDataAC_sfID,
+        $midiDataAD_sfID,
+        $midiDataAE_sfID
     );
 
 

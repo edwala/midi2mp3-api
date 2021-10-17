@@ -7,7 +7,7 @@ class Midi2Mp3
     const TMP_DIR = '/tmp/midi2mp3';
 
     // Bass
-    const A = 'BasBassLongs/.sf2';
+    const FONT_1 = 'BasBassLongs/.sf2';
     const B = 'Bass/BassPizz.sf2';
     const C = 'Bass/BassShort.sf2';
     const D = 'Bass/BassStreet.sf2';
@@ -143,7 +143,40 @@ class Midi2Mp3
                             $midiDataAB,
                             $midiDataAC,
                             $midiDataAD,
-                            $midiDataAE
+                            $midiDataAE,
+
+                            $midiDataA_sfID,
+                            $midiDataB_sfID,
+                            $midiDataC_sfID,
+                            $midiDataD_sfID,
+                            $midiDataE_sfID,
+                            $midiDataF_sfID,
+                            $midiDataG_sfID,
+                            $midiDataH_sfID,
+                            $midiDataCH_sfID,
+                            $midiDataI_sfID,
+                            $midiDataJ_sfID,
+                            $midiDataK_sfID,
+                            $midiDataL_sfID,
+                            $midiDataM_sfID,
+                            $midiDataN_sfID,
+                            $midiDataO_sfID,
+                            $midiDataP_sfID,
+                            $midiDataQ_sfID,
+                            $midiDataR_sfID,
+                            $midiDataS_sfID,
+                            $midiDataT_sfID,
+                            $midiDataU_sfID,
+                            $midiDataV_sfID,
+                            $midiDataW_sfID,
+                            $midiDataX_sfID,
+                            $midiDataY_sfID,
+                            $midiDataZ_sfID,
+                            $midiDataAA_sfID,
+                            $midiDataAB_sfID,
+                            $midiDataAC_sfID,
+                            $midiDataAD_sfID,
+                            $midiDataAE_sfID
     )
     {
 
@@ -157,38 +190,38 @@ class Midi2Mp3
             $output_dir = $tmp_dir . "/output";
 
 
-            $this->songs["A"] = $this->convertor($midiDataA, "A");
-            $this->songs["B"] = $this->convertor($midiDataB, "B");
-            $this->songs["C"] = $this->convertor($midiDataC, "C");
-            $this->songs["D"] = $this->convertor($midiDataD, "D");
-            $this->songs["E"] = $this->convertor($midiDataE, "E");
-            $this->songs["F"] = $this->convertor($midiDataF, "F");
-            $this->songs["G"] = $this->convertor($midiDataG, "G");
-            $this->songs["H"] = $this->convertor($midiDataH, "H");
-            $this->songs["CH"] = $this->convertor($midiDataCH, "CH");
-            $this->songs["I"] = $this->convertor($midiDataI, "I");
-            $this->songs["J"] = $this->convertor($midiDataJ, "J");
-            $this->songs["K"] = $this->convertor($midiDataK, "K");
-            $this->songs["L"] = $this->convertor($midiDataL, "L");
-            $this->songs["M"] = $this->convertor($midiDataM, "M");
-            $this->songs["N"] = $this->convertor($midiDataN, "N");
-            $this->songs["O"] = $this->convertor($midiDataO, "O");
-            $this->songs["P"] = $this->convertor($midiDataP, "P");
-            $this->songs["Q"] = $this->convertor($midiDataQ, "Q");
-            $this->songs["R"] = $this->convertor($midiDataR, "R");
-            $this->songs["S"] = $this->convertor($midiDataS, "S");
-            $this->songs["T"] = $this->convertor($midiDataT, "T");
-            $this->songs["U"] = $this->convertor($midiDataU, "U");
-            $this->songs["V"] = $this->convertor($midiDataV, "V");
-            $this->songs["W"] = $this->convertor($midiDataW, "W");
-            $this->songs["X"] = $this->convertor($midiDataX, "X");
-            $this->songs["Y"] = $this->convertor($midiDataY, "Y");
-            $this->songs["Z"] = $this->convertor($midiDataZ, "Z");
-            $this->songs["AA"] = $this->convertor($midiDataAA, "AA");
-            $this->songs["AB"] = $this->convertor($midiDataAB, "AB");
-            $this->songs["AC"] = $this->convertor($midiDataAC, "AC");
-            $this->songs["AD"] = $this->convertor($midiDataAD, "AD");
-            $this->songs["AE"] = $this->convertor($midiDataAE, "AE");
+            $this->songs["A"] = $this->convertor($midiDataA, $midiDataA_sfID);
+            $this->songs["B"] = $this->convertor($midiDataB, $midiDataB_sfID);
+            $this->songs["C"] = $this->convertor($midiDataC, $midiDataC_sfID);
+            $this->songs["D"] = $this->convertor($midiDataD, $midiDataD_sfID);
+            $this->songs["E"] = $this->convertor($midiDataE, $midiDataE_sfID);
+            $this->songs["F"] = $this->convertor($midiDataF, $midiDataF_sfID);
+            $this->songs["G"] = $this->convertor($midiDataG, $midiDataG_sfID);
+            $this->songs["H"] = $this->convertor($midiDataH, $midiDataH_sfID);
+            $this->songs["CH"] = $this->convertor($midiDataCH, $midiDataCH_sfID);
+            $this->songs["I"] = $this->convertor($midiDataI, $midiDataI_sfID);
+            $this->songs["J"] = $this->convertor($midiDataJ, $midiDataJ_sfID);
+            $this->songs["K"] = $this->convertor($midiDataK, $midiDataK_sfID);
+            $this->songs["L"] = $this->convertor($midiDataL, $midiDataL_sfID);
+            $this->songs["M"] = $this->convertor($midiDataM, $midiDataM_sfID);
+            $this->songs["N"] = $this->convertor($midiDataN, $midiDataN_sfID);
+            $this->songs["O"] = $this->convertor($midiDataO, $midiDataO_sfID);
+            $this->songs["P"] = $this->convertor($midiDataP, $midiDataP_sfID);
+            $this->songs["Q"] = $this->convertor($midiDataQ, $midiDataQ_sfID);
+            $this->songs["R"] = $this->convertor($midiDataR, $midiDataR_sfID);
+            $this->songs["S"] = $this->convertor($midiDataS, $midiDataS_sfID);
+            $this->songs["T"] = $this->convertor($midiDataT, $midiDataT_sfID);
+            $this->songs["U"] = $this->convertor($midiDataU, $midiDataU_sfID);
+            $this->songs["V"] = $this->convertor($midiDataV, $midiDataV_sfID);
+            $this->songs["W"] = $this->convertor($midiDataW, $midiDataW_sfID);
+            $this->songs["X"] = $this->convertor($midiDataX, $midiDataX_sfID);
+            $this->songs["Y"] = $this->convertor($midiDataY, $midiDataY_sfID);
+            $this->songs["Z"] = $this->convertor($midiDataZ, $midiDataZ_sfID);
+            $this->songs["AA"] = $this->convertor($midiDataAA, $midiDataAA_sfID);
+            $this->songs["AB"] = $this->convertor($midiDataAB, $midiDataAB_sfID);
+            $this->songs["AC"] = $this->convertor($midiDataAC, $midiDataAC_sfID);
+            $this->songs["AD"] = $this->convertor($midiDataAD, $midiDataAD_sfID);
+            $this->songs["AE"] = $this->convertor($midiDataAE, $midiDataAE_sfID);
 
 
             $cmdMix = "ffmpeg";
@@ -315,7 +348,7 @@ class Midi2Mp3
             }
             */
 
-            $soundfont = dirname(__DIR__) . '/soundfonts/' . constant('self::' . $type);
+            $soundfont = dirname(__DIR__) . '/soundfonts/' . constant('self::FONT_' . $type);
 
             // Initialisation
             $this->initPath($type);
