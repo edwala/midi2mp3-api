@@ -8,46 +8,63 @@ class Midi2Mp3
 
     // Bass
     const FONT_1 = 'BasBassLongs/.sf2';
-    const B = 'Bass/BassPizz.sf2';
-    const C = 'Bass/BassShort.sf2';
-    const D = 'Bass/BassStreet.sf2';
-    const E = 'Bass/BassSynthClassic.SF2';
-    const F = 'Bass/BassTremolo.sf2';
-    const G = 'Bass/EPBass2.sf2';
-    const H = 'Bass/fenderjazz.sf2';
+    const FONT_2  = 'Bass/BassPizz.sf2';
+    const FONT_3  = 'Bass/BassShort.sf2';
+    const FONT_4  = 'Bass/BassStreet.sf2';
+    const FONT_5  = 'Bass/BassSynthClassic.SF2';
+    const FONT_6  = 'Bass/BassTremolo.sf2';
+    const FONT_7  = 'Bass/EPBass2.sf2';
+    const FONT_8  = 'Bass/fenderjazz.sf2';
+    const FONT_9  = 'Bass/ORGBS1-OrganBass1.sf2';
+    const FONT_10  = 'Bass/RockBasses.sf2';
 // Guitars
-    const CH = 'Guitars/3_lead_guitars.sf2';
-    const I = 'Guitars/AI-Guitarish01.SF2';
-    const J = 'Guitars/GuitarAcoustic.sf2';
-    const K = 'Guitars/IbanezElectricGuitar.SF2';
-    const L = 'Guitars/PowerGuitar1.sf2';
+    const FONT_11 = 'Guitars/3_lead_guitars.sf2';
+    const FONT_12  = 'Guitars/AI-Guitarish01.SF2';
+    const FONT_13  = 'Guitars/GuitarAcoustic.sf2';
+    const FONT_14  = 'Guitars/IbanezElectricGuitar.SF2';
+    const FONT_15  = 'Guitars/PowerGuitar1.sf2';
 // klavesyHipHop
-    const M = 'klavesyHipHop/Organ.SF2';
-    const N = 'klavesyHipHop/organ26-Organ26.sf2';
+    const FONT_16  = 'klavesyHipHop/Organ.SF2';
+    const FONT_17  = 'klavesyHipHop/organ26-Organ26.sf2';
 // Percussions
-    const O = 'Percussions/KhaliagiDrums.sf2';
+    const FONT_18  = 'Percussions/KhaliagiDrums.sf2';
+
+    const FONT_44  = 'Percussions/KhaliagiDrums.sf2';
+    const FONT_45  = 'Percussions/KhaliagiDrums.sf2';
+    const FONT_46  = 'Percussions/KhaliagiDrums.sf2';
+    const FONT_47  = 'Percussions/KhaliagiDrums.sf2';
+    const FONT_48  = 'Percussions/KhaliagiDrums.sf2';
+
 // Piano
-    const P = 'Piano/ConcertPiano.SF2';
-    const Q = 'Piano/GrandPiano.sf2';
-    const R = 'Piano/HipHopKeyz1.sf2';
-    const S = 'Piano/KAWAI-GoodPiano.sf2';
+    const FONT_19  = 'Piano/ConcertPiano.SF2';
+    const FONT_20  = 'Piano/GrandPiano.sf2';
+    const FONT_21  = 'Piano/HipHopKeyz1.sf2';
+    const FONT_22  = 'Piano/KAWAI-GoodPiano.sf2';
+    const FONT_23  = 'Piano/MotifES6ConcertPiano.SF2';
+    const FONT_24  = 'Piano/MotifPiano.SF2';
+    const FONT_25  = 'Piano/PorterGrandPiano.sf2';
+    const FONT_26  = 'Piano/YamahaPiano.sf2';
 
 // Strings
-    const T = 'Strings/obsyn-OberheimSynth.sf2';
-    const U = 'Strings/MassiveStrings.sf2';
-    const V = 'Strings/P5Strings.sf2';
-    const W = 'Strings/PlasticStrings.sf2';
-    const X = 'Strings/RolandMarcatoStrings.sf2';
+    const FONT_27  = 'Strings/MassiveStrings.sf2';
+    const FONT_28  = 'Strings/obsyn-OberheimSynth.sf2';
+    const FONT_29  = 'Strings/P5Strings.sf2';
+    const FONT_30  = 'Strings/PlasticStrings.sf2';
+    const FONT_31  = 'Strings/RolandMarcatoStrings.sf2';
+    const FONT_32  = 'Strings/Strings.sf2';
+    const FONT_33  = 'Strings/StringsLegatoKorgTriton.SF2';
+    const FONT_34  = 'Strings/StringsLyrical.SF2';
+    const FONT_35  = 'Strings/vlnsyn-ViolinSynth.sf2';
 
 // Synths
-    const Y = 'Synths/FMModulator.sf2';
-    const Z = 'Synths/frezze2.sf2';
-    const AA = 'Synths/HappyMellow.sf2';
-    const AB = 'Synths/PlasticStrings.sf2';
-    const AC = 'Synths/PulseWobbler.sf2';
+    const FONT_36  = 'Synths/FMModulator.sf2';
+    const FONT_37  = 'Synths/frezze2.sf2';
+    const FONT_38 = 'Synths/HappyMellow.sf2';
+    const FONT_39 = 'Synths/PlasticStrings.sf2';
+    const FONT_40 = 'Synths/PulseWobbler.sf2';
 // Unsorted
-    const AD = 'Unsorted/_trap_lead.sf2';
-    const AE = 'Unsorted/SFT_115_D_Mood_Chord.sf2';
+    const FONT_41 = 'Unsorted/_trap_lead.sf2';
+    const FONT_42 = 'Unsorted/SFT_115_D_Mood_Chord.sf2';
 
     const MIDITEST = 'music.midi';
     //const SOUNDFONT = 'TimGM6mb.sf2';
