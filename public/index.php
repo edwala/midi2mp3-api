@@ -233,6 +233,9 @@ $app->post('/convert', function ($request, $response, $args) {
             ]
         ];
 
+        //return $options;
+
+
         try {
             $client->post($callback_uri, $options);
         } catch (Exception $ex) {

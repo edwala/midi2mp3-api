@@ -6,65 +6,67 @@ class Midi2Mp3
     // dossier temporaire pour le traitement lilypond
     const TMP_DIR = '/tmp/midi2mp3';
 
+    public $fonts;
     // Bass
-    const FONT_1 = 'BasBassLongs/.sf2';
-    const FONT_2  = 'Bass/BassPizz.sf2';
-    const FONT_3  = 'Bass/BassShort.sf2';
-    const FONT_4  = 'Bass/BassStreet.sf2';
-    const FONT_5  = 'Bass/BassSynthClassic.SF2';
-    const FONT_6  = 'Bass/BassTremolo.sf2';
-    const FONT_7  = 'Bass/EPBass2.sf2';
-    const FONT_8  = 'Bass/fenderjazz.sf2';
-    const FONT_9  = 'Bass/ORGBS1-OrganBass1.sf2';
-    const FONT_10  = 'Bass/RockBasses.sf2';
+    const FONT_1 = 'Bass/BassLong.sf2';
+    const FONT_2 = 'Bass/BassPizz.sf2';
+    const FONT_3 = 'Bass/BassShort.sf2';
+    const FONT_4 = 'Bass/BassStreet.sf2';
+    const FONT_5 = 'Bass/BassSynthClassic.SF2';
+    const FONT_6 = 'Bass/BassTremolo.sf2';
+    const FONT_7 = 'Bass/EPBass2.sf2';
+    const FONT_8 = 'Bass/fenderjazz.sf2';
+    const FONT_9 = 'Bass/ORGBS1-OrganBass1.sf2';
+    const FONT_10 = 'Bass/RockBasses.sf2';
 // Guitars
     const FONT_11 = 'Guitars/3_lead_guitars.sf2';
-    const FONT_12  = 'Guitars/AI-Guitarish01.SF2';
-    const FONT_13  = 'Guitars/GuitarAcoustic.sf2';
-    const FONT_14  = 'Guitars/IbanezElectricGuitar.SF2';
-    const FONT_15  = 'Guitars/PowerGuitar1.sf2';
+    const FONT_12 = 'Guitars/AI-Guitarish01.SF2';
+    const FONT_13 = 'Guitars/GuitarAcoustic.sf2';
+    const FONT_14 = 'Guitars/IbanezElectricGuitar.SF2';
+    const FONT_15 = 'Guitars/PowerGuitar1.sf2';
 // klavesyHipHop
-    const FONT_16  = 'klavesyHipHop/Organ.SF2';
-    const FONT_17  = 'klavesyHipHop/organ26-Organ26.sf2';
+    const FONT_16 = 'klavesyHipHop/Organ.SF2';
+    const FONT_17 = 'klavesyHipHop/organ26-Organ26.sf2';
 // Percussions
-    const FONT_18  = 'Percussions/KhaliagiDrums.sf2';
+    const FONT_18 = 'Percussions/KhaliagiDrums.sf2';
 
-    const FONT_44  = 'Percussions/KhaliagiDrums.sf2';
-    const FONT_45  = 'Percussions/KhaliagiDrums.sf2';
-    const FONT_46  = 'Percussions/KhaliagiDrums.sf2';
-    const FONT_47  = 'Percussions/KhaliagiDrums.sf2';
-    const FONT_48  = 'Percussions/KhaliagiDrums.sf2';
+    const FONT_44 = 'Percussions/Angular_TR-909.sf2';
+    const FONT_45 = 'Percussions/HIHAT.sf2';
+    const FONT_46 = 'Percussions/KIcks.sf2';
+    const FONT_47 = 'Percussions/NewKICKSSoundFont.sf2';
+    const FONT_48 = 'Percussions/Snare.sf2';
 
 // Piano
-    const FONT_19  = 'Piano/ConcertPiano.SF2';
-    const FONT_20  = 'Piano/GrandPiano.sf2';
-    const FONT_21  = 'Piano/HipHopKeyz1.sf2';
-    const FONT_22  = 'Piano/KAWAI-GoodPiano.sf2';
-    const FONT_23  = 'Piano/MotifES6ConcertPiano.SF2';
-    const FONT_24  = 'Piano/MotifPiano.SF2';
-    const FONT_25  = 'Piano/PorterGrandPiano.sf2';
-    const FONT_26  = 'Piano/YamahaPiano.sf2';
+    const FONT_19 = 'Piano/ConcertPiano.SF2';
+    const FONT_20 = 'Piano/GrandPiano.sf2';
+    const FONT_21 = 'Piano/HipHopKeyz1.sf2';
+    const FONT_22 = 'Piano/KAWAI-GoodPiano.sf2';
+    const FONT_23 = 'Piano/MotifES6ConcertPiano.SF2';
+    const FONT_24 = 'Piano/MotifPiano.SF2';
+    const FONT_25 = 'Piano/PorterGrandPiano.sf2';
+    const FONT_26 = 'Piano/YamahaPiano.sf2';
 
 // Strings
-    const FONT_27  = 'Strings/MassiveStrings.sf2';
-    const FONT_28  = 'Strings/obsyn-OberheimSynth.sf2';
-    const FONT_29  = 'Strings/P5Strings.sf2';
-    const FONT_30  = 'Strings/PlasticStrings.sf2';
-    const FONT_31  = 'Strings/RolandMarcatoStrings.sf2';
-    const FONT_32  = 'Strings/Strings.sf2';
-    const FONT_33  = 'Strings/StringsLegatoKorgTriton.SF2';
-    const FONT_34  = 'Strings/StringsLyrical.SF2';
-    const FONT_35  = 'Strings/vlnsyn-ViolinSynth.sf2';
+    const FONT_27 = 'Strings/MassiveStrings.sf2';
+    const FONT_28 = 'Strings/obsyn-OberheimSynth.sf2';
+    const FONT_29 = 'Strings/P5Strings.sf2';
+    const FONT_30 = 'Strings/PlasticStrings.sf2';
+    const FONT_31 = 'Strings/RolandMarcatoStrings.sf2';
+    const FONT_32 = 'Strings/Strings.sf2';
+    const FONT_33 = 'Strings/StringsLegatoKorgTriton.SF2';
+    const FONT_34 = 'Strings/StringsLyrical.SF2';
+    const FONT_35 = 'Strings/vlnsyn-ViolinSynth.sf2';
 
 // Synths
-    const FONT_36  = 'Synths/FMModulator.sf2';
-    const FONT_37  = 'Synths/frezze2.sf2';
+    const FONT_36 = 'Synths/FMModulator.sf2';
+    const FONT_37 = 'Synths/frezze2.sf2';
     const FONT_38 = 'Synths/HappyMellow.sf2';
     const FONT_39 = 'Synths/PlasticStrings.sf2';
     const FONT_40 = 'Synths/PulseWobbler.sf2';
 // Unsorted
     const FONT_41 = 'Unsorted/_trap_lead.sf2';
     const FONT_42 = 'Unsorted/SFT_115_D_Mood_Chord.sf2';
+    const FONT_49 = 'Unsorted/Angular_House_Set.sf2';
 
     const MIDITEST = 'music.midi';
     //const SOUNDFONT = 'TimGM6mb.sf2';
@@ -87,6 +89,13 @@ class Midi2Mp3
     // MP3S
     private $songs;
 
+
+    public function __construct()
+    {
+        $this->fonts = [
+            'Bass/BassLong.sf2'
+        ];
+    }
 
     //-----------------------------------------
     // INFO
@@ -207,38 +216,38 @@ class Midi2Mp3
             $output_dir = $tmp_dir . "/output";
 
 
-            $this->songs["A"] = $this->convertor($midiDataA, $midiDataA_sfID);
-            $this->songs["B"] = $this->convertor($midiDataB, $midiDataB_sfID);
-            $this->songs["C"] = $this->convertor($midiDataC, $midiDataC_sfID);
-            $this->songs["D"] = $this->convertor($midiDataD, $midiDataD_sfID);
-            $this->songs["E"] = $this->convertor($midiDataE, $midiDataE_sfID);
-            $this->songs["F"] = $this->convertor($midiDataF, $midiDataF_sfID);
-            $this->songs["G"] = $this->convertor($midiDataG, $midiDataG_sfID);
-            $this->songs["H"] = $this->convertor($midiDataH, $midiDataH_sfID);
-            $this->songs["CH"] = $this->convertor($midiDataCH, $midiDataCH_sfID);
-            $this->songs["I"] = $this->convertor($midiDataI, $midiDataI_sfID);
-            $this->songs["J"] = $this->convertor($midiDataJ, $midiDataJ_sfID);
-            $this->songs["K"] = $this->convertor($midiDataK, $midiDataK_sfID);
-            $this->songs["L"] = $this->convertor($midiDataL, $midiDataL_sfID);
-            $this->songs["M"] = $this->convertor($midiDataM, $midiDataM_sfID);
-            $this->songs["N"] = $this->convertor($midiDataN, $midiDataN_sfID);
-            $this->songs["O"] = $this->convertor($midiDataO, $midiDataO_sfID);
-            $this->songs["P"] = $this->convertor($midiDataP, $midiDataP_sfID);
-            $this->songs["Q"] = $this->convertor($midiDataQ, $midiDataQ_sfID);
-            $this->songs["R"] = $this->convertor($midiDataR, $midiDataR_sfID);
-            $this->songs["S"] = $this->convertor($midiDataS, $midiDataS_sfID);
-            $this->songs["T"] = $this->convertor($midiDataT, $midiDataT_sfID);
-            $this->songs["U"] = $this->convertor($midiDataU, $midiDataU_sfID);
-            $this->songs["V"] = $this->convertor($midiDataV, $midiDataV_sfID);
-            $this->songs["W"] = $this->convertor($midiDataW, $midiDataW_sfID);
-            $this->songs["X"] = $this->convertor($midiDataX, $midiDataX_sfID);
-            $this->songs["Y"] = $this->convertor($midiDataY, $midiDataY_sfID);
-            $this->songs["Z"] = $this->convertor($midiDataZ, $midiDataZ_sfID);
-            $this->songs["AA"] = $this->convertor($midiDataAA, $midiDataAA_sfID);
-            $this->songs["AB"] = $this->convertor($midiDataAB, $midiDataAB_sfID);
-            $this->songs["AC"] = $this->convertor($midiDataAC, $midiDataAC_sfID);
-            $this->songs["AD"] = $this->convertor($midiDataAD, $midiDataAD_sfID);
-            $this->songs["AE"] = $this->convertor($midiDataAE, $midiDataAE_sfID);
+            $this->songs["A"] = $this->convertor($midiDataA, $midiDataA_sfID, "A");
+            $this->songs["B"] = $this->convertor($midiDataB, $midiDataB_sfID, "B");
+            $this->songs["C"] = $this->convertor($midiDataC, $midiDataC_sfID, "C");
+            $this->songs["D"] = $this->convertor($midiDataD, $midiDataD_sfID, "D");
+            $this->songs["E"] = $this->convertor($midiDataE, $midiDataE_sfID, "E");
+            $this->songs["F"] = $this->convertor($midiDataF, $midiDataF_sfID, "F");
+            $this->songs["G"] = $this->convertor($midiDataG, $midiDataG_sfID, "G");
+            $this->songs["H"] = $this->convertor($midiDataH, $midiDataH_sfID, "H");
+            $this->songs["CH"] = $this->convertor($midiDataCH, $midiDataCH_sfID, "CH");
+            $this->songs["I"] = $this->convertor($midiDataI, $midiDataI_sfID, "I");
+            $this->songs["J"] = $this->convertor($midiDataJ, $midiDataJ_sfID, "J");
+            $this->songs["K"] = $this->convertor($midiDataK, $midiDataK_sfID, "K");
+            $this->songs["L"] = $this->convertor($midiDataL, $midiDataL_sfID, "L");
+            $this->songs["M"] = $this->convertor($midiDataM, $midiDataM_sfID, "M");
+            $this->songs["N"] = $this->convertor($midiDataN, $midiDataN_sfID, "N");
+            $this->songs["O"] = $this->convertor($midiDataO, $midiDataO_sfID, "O");
+            $this->songs["P"] = $this->convertor($midiDataP, $midiDataP_sfID, "P");
+            $this->songs["Q"] = $this->convertor($midiDataQ, $midiDataQ_sfID, "Q");
+            $this->songs["R"] = $this->convertor($midiDataR, $midiDataR_sfID, "R");
+            $this->songs["S"] = $this->convertor($midiDataS, $midiDataS_sfID, "S");
+            $this->songs["T"] = $this->convertor($midiDataT, $midiDataT_sfID, "T");
+            $this->songs["U"] = $this->convertor($midiDataU, $midiDataU_sfID, "U");
+            $this->songs["V"] = $this->convertor($midiDataV, $midiDataV_sfID, "V");
+            $this->songs["W"] = $this->convertor($midiDataW, $midiDataW_sfID, "W");
+            $this->songs["X"] = $this->convertor($midiDataX, $midiDataX_sfID, "X");
+            $this->songs["Y"] = $this->convertor($midiDataY, $midiDataY_sfID, "Y");
+            $this->songs["Z"] = $this->convertor($midiDataZ, $midiDataZ_sfID, "Z");
+            $this->songs["AA"] = $this->convertor($midiDataAA, $midiDataAA_sfID, "AA");
+            $this->songs["AB"] = $this->convertor($midiDataAB, $midiDataAB_sfID, "AB");
+            $this->songs["AC"] = $this->convertor($midiDataAC, $midiDataAC_sfID, "AC");
+            $this->songs["AD"] = $this->convertor($midiDataAD, $midiDataAD_sfID, "AD");
+            $this->songs["AE"] = $this->convertor($midiDataAE, $midiDataAE_sfID, "AE");
 
 
             $cmdMix = "ffmpeg";
@@ -342,7 +351,7 @@ class Midi2Mp3
         $result = base64_encode(file_get_contents($file));
     }
 
-    public function convertor($midiData, $type)
+    public function convertor($midiData, $type, $path)
     {
 
         // Mode optimiste
@@ -366,9 +375,13 @@ class Midi2Mp3
             */
 
             $soundfont = dirname(__DIR__) . '/soundfonts/' . constant('self::FONT_' . $type);
+            //$soundfont = dirname(__DIR__) . '/soundfonts/' . constant('self::FONT_1');
+            //$soundfont = dirname(__DIR__) . '/soundfonts/' . $this->fonts[0];
+            //$soundfont = dirname(__DIR__) . '/soundfonts/Bass/BassPizz.sf2';
+
 
             // Initialisation
-            $this->initPath($type);
+            $this->initPath($path);
             mkdir($this->dir, 0777, true);
             file_put_contents($this->inputFile, base64_decode($midiData, true));
 
